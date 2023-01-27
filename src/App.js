@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navigation from "./components/Naviagtion";
+import Addm from "./components/Addm";
+import Movielist from "./components/Movielist";
+import { data } from "./components/Data";
+import { useState } from "react";
+import React, { component } from "react";
+import Filter from "./components/Filter";
 
 function App() {
+  const [Movie, setMovie] = useState(data);
+  const handeleadd = (newmovie) => {
+    setMovie([...Movie, newmovie]);
+  };
+  const [title, settitle] = useState("");
+  const [Rating, setrating] = useState("0");
+  const searchName = (titre) => {
+    settitle(titre);
+  };
+  const searchRating = (Rate) => {
+    setrating(Rate);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navigation />
+      <Filter
+        title={title}
+        Rating={Rating}
+        searchName={searchName}
+        searchRating={searchRating}
+      />
+      <Addm handeleadd={handeleadd} />
+      <Movielist Movie={Movie.filter((e)=>e.title.includes(title)&& e.rating >= Rating )} />
+    </>
   );
 }
 
