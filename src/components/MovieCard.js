@@ -16,9 +16,15 @@ import Card from "react-bootstrap/Card";
 
 function Moviecard({ Movie }) {
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={Movie.posterURL} width="320
-      " />
+    <Card
+      style={{ width: "18rem", marginTop: "10px", backroundColor: "black" }}
+    >
+      <Card.Img
+        variant="top"
+        src={Movie.posterURL}
+        width="320
+      "
+      />
       <Card.Body>
         <Card.Title>{Movie.title}</Card.Title>
         <Card.Text>BIO: {Movie.description}</Card.Text>

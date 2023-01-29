@@ -5,7 +5,7 @@ import Movielist from "./components/Movielist";
 import { data } from "./components/Data";
 import { useState } from "react";
 import React, { component } from "react";
-import Filter from "./components/Filter";
+
 
 function App() {
   const [Movie, setMovie] = useState(data);
@@ -22,17 +22,21 @@ function App() {
   };
 
   return (
-    <>
-      <Navigation />
-      <Filter
+    <div style={{ backroundColor: "black" }}>
+      <Navigation
         title={title}
         Rating={Rating}
         searchName={searchName}
         searchRating={searchRating}
+        handeleadd={handeleadd}
       />
       <Addm handeleadd={handeleadd} />
-      <Movielist Movie={Movie.filter((e)=>e.title.includes(title)&& e.rating >= Rating )} />
-    </>
+      <Movielist
+        Movie={Movie.filter(
+          (e) => e.title.includes(title) && e.rating >= Rating
+        )}
+      />
+    </div>
   );
 }
 

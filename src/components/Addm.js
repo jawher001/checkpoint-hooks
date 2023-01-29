@@ -42,7 +42,7 @@ function Addm({ handeleadd }) {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        CLICK ME TO ADD A NEW MOVIE BRO
+         ADD A NEW MOVIE BRO
       </Button>
 
       <Modal show={show} onHide={handleClose}>
